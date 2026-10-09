@@ -1,0 +1,54 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  color-scheme: light;
+}
+
+html {
+  scroll-behavior: smooth;
+  -webkit-text-size-adjust: 100%;
+}
+
+body {
+  @apply bg-white text-electric-dark antialiased;
+  overflow-x: hidden;
+}
+
+/* Accessibilite : focus visible */
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+textarea:focus-visible,
+select:focus-visible {
+  outline: 3px solid #0A4FFF;
+  outline-offset: 2px;
+}
+
+@layer components {
+  .container-page {
+    @apply mx-auto w-full max-w-6xl px-4 sm:px-6 lg:px-8;
+  }
+  .btn {
+    @apply inline-flex items-center justify-center gap-2 rounded-xl px-6 py-3 text-base font-semibold transition focus:outline-none;
+  }
+  .btn-primary {
+    @apply btn bg-safety text-electric-dark hover:brightness-95 shadow-card;
+  }
+  .btn-secondary {
+    @apply btn bg-electric text-white hover:bg-electric-dark;
+  }
+  .btn-outline {
+    @apply btn border-2 border-electric text-electric hover:bg-electric hover:text-white;
+  }
+  .section {
+    @apply py-16 sm:py-20;
+  }
+  .h-title {
+    @apply text-3xl sm:text-4xl font-extrabold tracking-tight text-electric-dark;
+  }
+  .card {
+    @apply rounded-2xl bg-white p-6 shadow-card ring-1 ring-black/5;
+  }
+}
