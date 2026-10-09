@@ -1,0 +1,21 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Mentions legales" description="Mentions legales de DATACOM SASU.">
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h1 class="h-title">Mentions legales</h1>
+      <p class="mt-4 text-electric-dark/70">Editeur du site : {site.nomLegal}</p>
+      <ul class="mt-4 space-y-2 text-electric-dark/70">
+        <li>Adresse : {site.adresse}</li>
+        <li>Telephone : {site.telephone}</li>
+        <li>Email : {site.email}</li>
+        <li>SIRET : {site.siret}</li>
+        <li>Responsable de la publication : {site.responsablePublication}</li>
+        <li>Hebergeur : {site.hebergeur}</li>
+      </ul>
+      <p class="mt-4 text-sm text-electric-dark/50">[Completez ces mentions avec les informations legales reelles avant la mise en ligne.]</p>
+    </div>
+  </section>
+</BaseLayout>
