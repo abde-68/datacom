@@ -1,0 +1,11 @@
+---
+interface Props { titre: string; desc: string; }
+const { titre, desc } = Astro.props;
+---
+<div class="card h-full">
+  <div class="mb-3 inline-flex h-10 w-10 items-center justify-center rounded-lg bg-electric/10 text-electric">
+    <svg width="22" height="22" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M13 2L4 14h6l-1 8 9-12h-6z" stroke="currentColor" stroke-width="2" stroke-linejoin="round"/></svg>
+  </div>
+  <h3 class="mb-1 text-lg font-bold text-electric-dark">{titre}</h3>
+  <p class="text-sm text-electric-dark/70">{desc}</p>
+</div>
