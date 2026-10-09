@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { fibre } from '../data/services';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Fibre optique"
+  description="Installation, raccordement, cablage, soudure et reparation de fibre optique pour particuliers et entreprises. DATACOM, specialiste fibre optique."
+>
+  <section class="bg-gradient-to-br from-surface to-white section">
+    <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h1 class="h-title">Fibre optique</h1>
+        <p class="mt-4 text-lg text-electric-dark/70">Installation, raccordement, diagnostic et reparation : DATACOM assure une connexion fibre fiable et performante, chez les particuliers comme en entreprise.</p>
+        <a href="/contact" class="btn-primary mt-6">Demander un devis</a>
+      </div>
+      <ImagePlaceholder label="PHOTO FIBRE OPTIQUE" ratio="aspect-[4/3]" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <h2 class="h-title text-center">Nos prestations fibre optique</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {fibre.map((s) => <ServiceCard titre={s.titre} desc={s.desc} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface">
+    <div class="container-page grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="h-title">Le deroulement d'une intervention</h2>
+        <ol class="mt-6 space-y-4">
+          {['Diagnostic de votre installation et de votre besoin','Devis gratuit et planification','Raccordement ou reparation de la fibre','Test de connexion et mesure des performances','Optimisation et mise en service'].map((e, i) => (
+            <li class="flex gap-3"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-electric text-sm font-bold text-white">{i+1}</span><span class="text-electric-dark/80">{e}</span></li>
+          ))}
+        </ol>
+      </div>
+      <div>
+        <h2 class="h-title">Questions frequentes</h2>
+        <div class="mt-6 space-y-3">
+          <details class="card"><summary class="cursor-pointer font-semibold">Intervenez-vous pour les entreprises ?</summary><p class="mt-2 text-sm text-electric-dark/70">Oui, nous intervenons pour les particuliers et les professionnels.</p></details>
+          <details class="card"><summary class="cursor-pointer font-semibold">Pouvez-vous reparer un cable fibre coupe ?</summary><p class="mt-2 text-sm text-electric-dark/70">Oui, nous realisons la reparation et la soudure de fibre optique.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page text-center">
+      <p class="text-electric-dark/70">{site.zoneTexte}</p>
+      <a href="/contact" class="btn-secondary mt-6">Contacter DATACOM</a>
+    </div>
+  </section>
+</BaseLayout>

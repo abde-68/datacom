@@ -1,0 +1,23 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const faqs = [
+  ['Comment demander un devis ?', 'Via notre formulaire de contact ou par telephone. L etude est gratuite et sans engagement.'],
+  ['Quels sont vos delais d intervention ?', '[A COMPLETER selon vos delais reels.]'],
+  ['Intervenez-vous en urgence ?', '[A COMPLETER selon vos conditions reelles.]'],
+  ['Travaillez-vous avec les professionnels ?', 'Oui, nous intervenons pour les particuliers et les professionnels.'],
+  ['Quelle est votre zone d intervention ?', '[A COMPLETER : indiquez vos villes reelles d intervention.]'],
+  ['Faites-vous l electricite et la fibre optique ?', 'Oui, ce sont nos deux seuls domaines d expertise.'],
+];
+---
+<BaseLayout title="FAQ" description="Questions frequentes sur nos prestations d electricite generale et de fibre optique.">
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h1 class="h-title text-center">Questions frequentes</h1>
+      <div class="mt-10 space-y-3">
+        {faqs.map(([q, a]) => (
+          <details class="card"><summary class="cursor-pointer font-semibold text-electric-dark">{q}</summary><p class="mt-2 text-electric-dark/70">{a}</p></details>
+        ))}
+      </div>
+    </div>
+  </section>
+</BaseLayout>

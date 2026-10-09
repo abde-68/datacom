@@ -1,0 +1,58 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ServiceCard from '../components/ServiceCard.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { electricite } from '../data/services';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Electricite generale"
+  description="Installation, renovation, mise aux normes, tableau electrique, depannage et recherche de panne. DATACOM, electricite generale pour particuliers et professionnels."
+>
+  <section class="bg-gradient-to-br from-surface to-white section">
+    <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h1 class="h-title">Electricite generale</h1>
+        <p class="mt-4 text-lg text-electric-dark/70">De l'installation neuve au depannage, DATACOM prend en charge l'ensemble de vos besoins electriques, pour les particuliers comme pour les professionnels.</p>
+        <a href="/contact" class="btn-primary mt-6">Demander un devis</a>
+      </div>
+      <ImagePlaceholder label="PHOTO ELECTRICITE" ratio="aspect-[4/3]" />
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page">
+      <h2 class="h-title text-center">Nos prestations electriques</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {electricite.map((s) => <ServiceCard titre={s.titre} desc={s.desc} />)}
+      </div>
+    </div>
+  </section>
+
+  <section class="section bg-surface">
+    <div class="container-page grid gap-10 lg:grid-cols-2">
+      <div>
+        <h2 class="h-title">Le deroulement d'une intervention</h2>
+        <ol class="mt-6 space-y-4">
+          {['Prise de contact et analyse de votre besoin','Etude et devis gratuit detaille','Planification de l intervention','Realisation des travaux conforme aux normes','Verification et mise en service'].map((e, i) => (
+            <li class="flex gap-3"><span class="flex h-7 w-7 shrink-0 items-center justify-center rounded-full bg-electric text-sm font-bold text-white">{i+1}</span><span class="text-electric-dark/80">{e}</span></li>
+          ))}
+        </ol>
+      </div>
+      <div>
+        <h2 class="h-title">Questions frequentes</h2>
+        <div class="mt-6 space-y-3">
+          <details class="card"><summary class="cursor-pointer font-semibold">Intervenez-vous en urgence ?</summary><p class="mt-2 text-sm text-electric-dark/70">[REPONSE A COMPLETER selon vos conditions reelles d'intervention.]</p></details>
+          <details class="card"><summary class="cursor-pointer font-semibold">Le devis est-il gratuit ?</summary><p class="mt-2 text-sm text-electric-dark/70">Oui, l'etude et le devis sont gratuits et sans engagement.</p></details>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="container-page text-center">
+      <p class="text-electric-dark/70">{site.zoneTexte}</p>
+      <a href="/contact" class="btn-secondary mt-6">Contacter DATACOM</a>
+    </div>
+  </section>
+</BaseLayout>

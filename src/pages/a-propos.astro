@@ -1,0 +1,24 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+<BaseLayout
+  title="A propos"
+  description="Decouvrez DATACOM, entreprise specialisee en electricite generale et fibre optique au service des particuliers et des professionnels."
+>
+  <section class="section">
+    <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <h1 class="h-title">A propos de DATACOM</h1>
+        <p class="mt-4 text-electric-dark/70">DATACOM SASU est une entreprise specialisee exclusivement dans l'electricite generale et la fibre optique. Nous accompagnons particuliers et professionnels, de l'etude a la mise en service, avec un travail soigne et conforme aux normes.</p>
+        <p class="mt-4 text-electric-dark/70">[TEXTE A PROPOS A COMPLETER : histoire, experience, valeurs et engagements reels de l'entreprise. Ne rien inventer concernant l'anciennete ou les certifications.]</p>
+        <ul class="mt-6 space-y-2 text-electric-dark/80">
+          <li>Qualifications : [A COMPLETER]</li>
+          <li>Assurances : [A COMPLETER]</li>
+          <li>Certifications / labels : [A COMPLETER]</li>
+        </ul>
+      </div>
+      <ImagePlaceholder label="PHOTO ENTREPRISE" ratio="aspect-[4/3]" />
+    </div>
+  </section>
+</BaseLayout>

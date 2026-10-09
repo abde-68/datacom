@@ -1,0 +1,18 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+---
+<BaseLayout
+  title="Realisations"
+  description="Galerie des chantiers realises par DATACOM en electricite generale et fibre optique."
+>
+  <section class="section">
+    <div class="container-page">
+      <h1 class="h-title text-center">Nos realisations</h1>
+      <p class="mx-auto mt-4 max-w-2xl text-center text-electric-dark/70">Decouvrez quelques-uns de nos chantiers. [Ajoutez ici vos photos reelles et autorisees de realisations.]</p>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        {Array.from({ length: 6 }).map((_, i) => <ImagePlaceholder label={`CHANTIER ${i+1}`} />)}
+      </div>
+    </div>
+  </section>
+</BaseLayout>
