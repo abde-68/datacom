@@ -1,0 +1,90 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import ImagePlaceholder from '../components/ImagePlaceholder.astro';
+import { site } from '../data/site';
+const ville = site.villes[0] ?? '[VOTRE VILLE]';
+---
+<BaseLayout
+  title="Electricite generale et fibre optique"
+  description="DATACOM : electricite generale, installation et depannage de fibre optique pour particuliers et professionnels. Etude et devis gratuits."
+>
+  <!-- HERO -->
+  <section class="bg-gradient-to-br from-surface to-white section">
+    <div class="container-page grid items-center gap-10 lg:grid-cols-2">
+      <div>
+        <span class="inline-block rounded-full bg-electric/10 px-3 py-1 text-sm font-semibold text-electric">Particuliers &amp; professionnels</span>
+        <h1 class="mt-4 text-4xl font-extrabold leading-tight tracking-tight text-electric-dark sm:text-5xl">
+          Electricite generale et fibre optique a {ville} et ses environs
+        </h1>
+        <p class="mt-4 text-lg text-electric-dark/70">
+          DATACOM realise vos installations electriques et votre raccordement a la fibre optique, avec un travail soigne, securise et conforme aux normes.
+        </p>
+        <div class="mt-8 flex flex-wrap gap-4">
+          <a href="/contact" class="btn-primary">Etude et devis gratuits</a>
+          <a href="/contact" class="btn-secondary">Appeler maintenant</a>
+        </div>
+      </div>
+      <ImagePlaceholder label="PHOTO PRINCIPALE A REMPLACER" ratio="aspect-[4/3]" />
+    </div>
+  </section>
+
+  <!-- DEUX ACTIVITES -->
+  <section class="section">
+    <div class="container-page">
+      <h2 class="h-title text-center">Nos deux domaines d'expertise</h2>
+      <div class="mt-10 grid gap-8 md:grid-cols-2">
+        <article class="card">
+          <ImagePlaceholder label="PHOTO ELECTRICITE" />
+          <h3 class="mt-5 text-2xl font-bold text-electric">Electricite generale</h3>
+          <p class="mt-2 text-electric-dark/70">Installation neuve, renovation, mise aux normes, tableau electrique, depannage et recherche de panne.</p>
+          <a href="/electricite-generale" class="btn-outline mt-5">Decouvrir</a>
+        </article>
+        <article class="card">
+          <ImagePlaceholder label="PHOTO FIBRE OPTIQUE" />
+          <h3 class="mt-5 text-2xl font-bold text-electric">Fibre optique</h3>
+          <p class="mt-2 text-electric-dark/70">Installation, raccordement, cablage, soudure, reparation et optimisation de votre reseau fibre.</p>
+          <a href="/fibre-optique" class="btn-outline mt-5">Decouvrir</a>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- AVANTAGES -->
+  <section class="section bg-surface">
+    <div class="container-page">
+      <h2 class="h-title text-center">Pourquoi choisir DATACOM ?</h2>
+      <div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        {[
+          ['Travail conforme', 'Installations realisees dans le respect des normes en vigueur.'],
+          ['Proximite', 'Une entreprise a votre ecoute, proche de ses clients.'],
+          ['Devis gratuit', 'Une etude claire et sans engagement avant chaque intervention.'],
+          ['Reactivite', 'Des interventions planifiees dans les meilleurs delais.'],
+        ].map(([t, d]) => (
+          <div class="card text-center">
+            <h3 class="text-lg font-bold text-electric-dark">{t}</h3>
+            <p class="mt-2 text-sm text-electric-dark/70">{d}</p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- ZONE INTERVENTION -->
+  <section class="section">
+    <div class="container-page text-center">
+      <h2 class="h-title">Zone d'intervention</h2>
+      <p class="mx-auto mt-4 max-w-2xl text-electric-dark/70">{site.zoneTexte}</p>
+    </div>
+  </section>
+
+  <!-- CTA CONTACT -->
+  <section class="section">
+    <div class="container-page">
+      <div class="rounded-3xl bg-electric px-8 py-12 text-center text-white">
+        <h2 class="text-3xl font-extrabold">Un projet ? Un depannage ?</h2>
+        <p class="mt-3 text-white/80">Demandez votre devis gratuit, nous traitons votre demande dans les meilleurs delais.</p>
+        <a href="/contact" class="btn-primary mt-6">Demander un devis</a>
+      </div>
+    </div>
+  </section>
+</BaseLayout>

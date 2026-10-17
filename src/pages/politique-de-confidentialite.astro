@@ -1,0 +1,17 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout title="Politique de confidentialite" description="Politique de confidentialite et traitement des donnees personnelles chez DATACOM SASU.">
+  <section class="section">
+    <div class="container-page max-w-3xl">
+      <h1 class="h-title">Politique de confidentialite</h1>
+      <p class="mt-4 text-electric-dark/70">Les donnees transmises via le formulaire de contact (nom, prenom, email, telephone, commune, description du besoin) sont utilisees uniquement pour traiter votre demande de devis et vous recontacter.</p>
+      <h2 class="mt-6 text-xl font-bold">Destinataire</h2>
+      <p class="text-electric-dark/70">Vos donnees sont transmises a {site.nomLegal} ({site.email}) et ne sont pas cedees a des tiers.</p>
+      <h2 class="mt-6 text-xl font-bold">Vos droits</h2>
+      <p class="text-electric-dark/70">Conformement au RGPD, vous disposez d'un droit d'acces, de rectification et de suppression de vos donnees en nous contactant a {site.email}.</p>
+      <p class="mt-4 text-sm text-electric-dark/50">[Completez cette politique avec vos informations reelles et, le cas echeant, votre bandeau cookies si des traceurs non essentiels sont ajoutes.]</p>
+    </div>
+  </section>
+</BaseLayout>

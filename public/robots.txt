@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+
+# Remplacez par votre domaine definitif
+Sitemap: https://www.datacom.example/sitemap-index.xml

@@ -1,0 +1,67 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../data/site';
+---
+<BaseLayout
+  title="Contact et demande de devis"
+  description="Contactez DATACOM pour un devis gratuit en electricite generale ou fibre optique. Reponse dans les meilleurs delais."
+>
+  <section class="section">
+    <div class="container-page grid gap-10 lg:grid-cols-2">
+      <div>
+        <h1 class="h-title">Demander un devis</h1>
+        <p class="mt-4 text-electric-dark/70">Remplissez le formulaire, nous vous recontactons dans les meilleurs delais. Tous les champs marques * sont obligatoires.</p>
+        <ul class="mt-6 space-y-2 text-electric-dark/80">
+          <li>Telephone : {site.telephone}</li>
+          <li>Email : {site.email}</li>
+          <li>Adresse : {site.adresse}</li>
+          <li>Horaires : {site.horaires}</li>
+        </ul>
+        <div class="mt-6 flex aspect-[16/9] items-center justify-center rounded-2xl bg-surface text-sm text-electric-dark/50 ring-1 ring-black/5">[GOOGLE MAPS A ACTIVER]</div>
+      </div>
+
+      <form id="devis-form" class="card space-y-4" method="post" action="/api/devis" novalidate>
+        <div class="grid gap-4 sm:grid-cols-2">
+          <label class="block"><span class="text-sm font-medium">Nom *</span><input required name="nom" type="text" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Prenom *</span><input required name="prenom" type="text" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Email *</span><input required name="email" type="email" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Telephone *</span><input required name="telephone" type="tel" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Commune</span><input name="commune" type="text" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2" /></label>
+          <label class="block"><span class="text-sm font-medium">Type de service *</span>
+            <select required name="service" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2">
+              <option value="">Choisir...</option>
+              <option value="electricite">Electricite generale</option>
+              <option value="fibre">Fibre optique</option>
+            </select>
+          </label>
+        </div>
+        <label class="block"><span class="text-sm font-medium">Niveau d'urgence</span>
+          <select name="urgence" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2">
+            <option value="normal">Normal</option>
+            <option value="rapide">Rapide</option>
+            <option value="urgent">Urgent</option>
+          </select>
+        </label>
+        <label class="block"><span class="text-sm font-medium">Votre besoin *</span><textarea required name="message" rows="5" class="mt-1 w-full rounded-lg border border-black/10 px-3 py-2"></textarea></label>
+        <label class="block"><span class="text-sm font-medium">Photos (optionnel)</span><input name="photos" type="file" accept="image/*" multiple class="mt-1 w-full text-sm" /></label>
+        <input type="text" name="website" tabindex="-1" autocomplete="off" class="hidden" aria-hidden="true" />
+        <label class="flex items-start gap-2 text-sm"><input required type="checkbox" name="rgpd" class="mt-1" /><span>J'accepte que mes donnees soient utilisees pour traiter ma demande, conformement a la <a href="/politique-de-confidentialite" class="text-electric underline">politique de confidentialite</a>. *</span></label>
+        <button type="submit" class="btn-primary w-full">Envoyer ma demande</button>
+        <p id="form-message" class="hidden rounded-lg bg-green-50 px-4 py-3 text-sm text-green-800" role="status">Merci d'envoyer toutes les informations, on traite votre demande dans les meilleurs delais.</p>
+      </form>
+    </div>
+  </section>
+
+  <script>
+    const form = document.getElementById('devis-form');
+    const msg = document.getElementById('form-message');
+    form?.addEventListener('submit', (e) => {
+      if (!(form as HTMLFormElement).checkValidity()) return;
+      const honeypot = (form as HTMLFormElement).querySelector('input[name=website]') as HTMLInputElement;
+      if (honeypot && honeypot.value) { e.preventDefault(); return; }
+      e.preventDefault();
+      msg?.classList.remove('hidden');
+      (form as HTMLFormElement).reset();
+    });
+  </script>
+</BaseLayout>

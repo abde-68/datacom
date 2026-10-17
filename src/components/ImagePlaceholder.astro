@@ -1,0 +1,11 @@
+---
+interface Props { label?: string; ratio?: string; }
+const { label = 'PHOTO A REMPLACER', ratio = 'aspect-[16/10]' } = Astro.props;
+---
+<!-- Emplacement image provisoire : remplacer par une vraie photo autorisee -->
+<div class={`flex ${ratio} w-full items-center justify-center rounded-2xl bg-gradient-to-br from-electric/10 to-electric-dark/10 ring-1 ring-black/5`}>
+  <span class="flex flex-col items-center gap-2 text-electric-dark/50">
+    <svg width="40" height="40" viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M3 5h18v14H3z M3 16l5-5 4 4 3-3 6 6" stroke="currentColor" stroke-width="1.5" stroke-linejoin="round"/><circle cx="8" cy="9" r="1.5" fill="currentColor"/></svg>
+    <span class="text-xs font-semibold tracking-wide">{label}</span>
+  </span>
+</div>

@@ -1,0 +1,41 @@
+---
+import { site } from '../data/site';
+const annee = new Date().getFullYear();
+---
+<footer class="mt-10 bg-electric-dark text-white">
+  <div class="container-page grid gap-10 py-14 sm:grid-cols-2 lg:grid-cols-4">
+    <div>
+      <img src="/logo-datacom.svg" alt="DATACOM" class="mb-4 h-10 w-auto rounded bg-white p-1" width="320" height="72" />
+      <p class="text-sm text-white/70">{site.nomLegal} - Electricite generale et fibre optique pour particuliers et professionnels.</p>
+    </div>
+    <div>
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-safety">Services</h2>
+      <ul class="space-y-2 text-sm text-white/80">
+        <li><a href="/electricite-generale" class="hover:text-safety">Electricite generale</a></li>
+        <li><a href="/fibre-optique" class="hover:text-safety">Fibre optique</a></li>
+        <li><a href="/realisations" class="hover:text-safety">Realisations</a></li>
+        <li><a href="/faq" class="hover:text-safety">FAQ</a></li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-safety">Contact</h2>
+      <ul class="space-y-2 text-sm text-white/80">
+        <li>Tel : {site.telephone}</li>
+        <li>Email : {site.email}</li>
+        <li>{site.adresse}</li>
+        <li>{site.horaires}</li>
+      </ul>
+    </div>
+    <div>
+      <h2 class="mb-3 text-sm font-semibold uppercase tracking-wider text-safety">Informations</h2>
+      <ul class="space-y-2 text-sm text-white/80">
+        <li><a href="/mentions-legales" class="hover:text-safety">Mentions legales</a></li>
+        <li><a href="/politique-de-confidentialite" class="hover:text-safety">Politique de confidentialite</a></li>
+        <li><a href="/contact" class="hover:text-safety">Demander un devis</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="border-t border-white/10 py-5 text-center text-sm text-white/60">
+    &copy; {annee} {site.nomLegal}. Tous droits reserves.
+  </div>
+</footer>
